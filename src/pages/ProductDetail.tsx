@@ -43,16 +43,25 @@ const STATIC_PRODUCTS: Record<string, any> = {
     materials: ['Alloyed Cylinder Block', 'Precision Machined Pistons', 'Nitrided Piston Rings']
   },
   'piston-rings': {
-    name: 'Piston Rings & Pins',
+    name: 'Precision Engine Piston Rings & Sets',
     category: 'Engine Components',
-    image: 'https://images.unsplash.com/photo-1601737786196-856ec85c18b7?auto=format&fit=crop&q=80&w=1200',
-    description: 'Chromium plated and nitrided piston rings paired with induction hardened wrist pins.',
+    image: '/images/products/piston_rings/img_1.jpeg',
+    gallery: [
+      '/images/products/piston_rings/img_1.jpeg',
+      '/images/products/piston_rings/img_2.jpeg',
+      '/images/products/piston_rings/img_3.jpeg',
+      '/images/products/piston_rings/img_4.jpeg',
+      '/images/products/piston_rings/img_5.jpeg',
+      '/images/products/piston_rings/img_6.jpeg'
+    ],
+    description: 'Chromium plated, nitrided and phosphate coated high compression piston rings for heavy commercial, automotive & agricultural diesel engines.',
     richDescription: `
-      <p class="mb-4">KOMODO Piston Rings are engineered from ductile iron and high-tensile steel, featuring hard chromium plating and gas nitriding on sliding faces for minimal friction and maximum scuff resistance.</p>
-      <p class="mb-4">Paired with case-hardened steel wrist pins (58-62 HRC), our ring sets ensure optimum gas sealing, oil control, and long service life in high-pressure engines.</p>
+      <p class="mb-4">KOMODO Piston Rings are engineered from centrifugally cast ductile iron and micro-alloyed steel. Sliding faces undergo hard chromium plating, gas nitriding, and molybdenum spray coatings for minimal cylinder wall friction, zero scuffing, and exceptional wear resistance.</p>
+      <p class="mb-4">Our compression rings, scraper rings, and oil control rings (with stainless steel coil expanders) deliver optimum gas sealing, low oil consumption, and long service life in high-power turbocharged engines.</p>
+      <p class="mb-4">Manufactured to exact OEM standards for commercial trucks, tractors, industrial generators, and stationary diesel engines.</p>
     `,
-    applications: ['Commercial Trucks', 'Buses', 'Tractors', 'Gensets'],
-    materials: ['Ductile Cast Iron', 'Nitrided Steel', 'Chromium Plated Alloy']
+    applications: ['Heavy Commercial Trucks', 'Agricultural Tractors', 'Stationary Power Gensets', 'Air Compressors & Marine Engines'],
+    materials: ['Spheroidal Graphite Ductile Cast Iron', 'Hard Chrome Plated Steel', 'Gas Nitrided Alloy Steel', 'Stainless Steel Coil Expanders']
   },
   'valves': {
     name: 'Engine Valves & Valve Guides',

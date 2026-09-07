@@ -14,6 +14,15 @@ const pistonPhotos = [
   { url: '/images/products/pistons/img_8.jpeg', title: 'OEM Specification Heavy Duty Piston Set' }
 ];
 
+const pistonRingsPhotos = [
+  { url: '/images/products/piston_rings/img_1.jpeg', title: 'Chrome Plated Top Compression Piston Ring' },
+  { url: '/images/products/piston_rings/img_2.jpeg', title: 'Ductile Iron Scraper Ring Set' },
+  { url: '/images/products/piston_rings/img_3.jpeg', title: 'Oil Control Ring with Coil Expander' },
+  { url: '/images/products/piston_rings/img_4.jpeg', title: 'Heavy Duty Commercial Diesel Piston Ring Pack' },
+  { url: '/images/products/piston_rings/img_5.jpeg', title: 'High-Pressure Nitrided Engine Piston Rings' },
+  { url: '/images/products/piston_rings/img_6.jpeg', title: 'OEM Tractor & Genset Piston Ring Assembly' }
+];
+
 const pistonHighlights = [
   {
     title: "High-Strength Alloy Metallurgy",
@@ -171,8 +180,49 @@ export function PistonsPage() {
         </div>
       </section>
 
+      {/* Piston Rings Factory Product Gallery Grid */}
+      <section className="py-16 bg-zinc-50 border-b border-zinc-200">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="flex flex-col md:flex-row md:items-end justify-between mb-10">
+            <div>
+              <span className="text-[#D32F2F] text-xs font-extrabold uppercase tracking-widest block mb-2">
+                Factory Piston Rings Range
+              </span>
+              <h2 className="text-3xl font-extrabold text-zinc-900">
+                Precision Compression & Oil Control Piston Rings
+              </h2>
+            </div>
+            <p className="text-zinc-500 text-xs mt-2 md:mt-0">
+              Chromium Plated, Nitrided & Phosphate Coated Piston Ring Assemblies
+            </p>
+          </div>
+
+          <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-6">
+            {pistonRingsPhotos.map((photo, idx) => (
+              <div 
+                key={idx}
+                onClick={() => setSelectedPhoto(photo.url)}
+                className="group relative rounded-2xl overflow-hidden bg-white border border-zinc-200 shadow-sm hover:shadow-xl transition-all cursor-pointer"
+              >
+                <div className="h-60 overflow-hidden bg-zinc-50 p-4 flex items-center justify-center">
+                  <img 
+                    src={photo.url} 
+                    alt={photo.title}
+                    className="max-h-full max-w-full object-contain transition-transform duration-300 group-hover:scale-105" 
+                  />
+                </div>
+                <div className="p-3.5 bg-zinc-900 text-white flex items-center justify-between">
+                  <span className="font-bold text-xs truncate">{photo.title}</span>
+                  <ZoomIn className="w-4 h-4 text-red-400 shrink-0 ml-2 opacity-70 group-hover:opacity-100" />
+                </div>
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
+
       {/* Feature Grid */}
-      <section className="py-20 bg-zinc-50">
+      <section className="py-20 bg-white">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center max-w-3xl mx-auto mb-16">
             <h2 className="text-3xl font-extrabold text-zinc-900 mb-4">
