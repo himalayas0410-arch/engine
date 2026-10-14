@@ -3,7 +3,7 @@ import nodemailer from 'nodemailer';
 const RECAPTCHA_SECRET_KEY = process.env.RECAPTCHA_SECRET_KEY || "6LfyzaQtAAAAAP-WcjD9nckGIRZ0Px_DhAoxlYcF";
 const SMTP_USER = process.env.SMTP_USER || "kashishgoyal100@gmail.com";
 const SMTP_PASS = (process.env.SMTP_PASS || "srgh qpan ghgu fgic").replace(/\s+/g, '');
-const RECIPIENT_EMAILS = process.env.RECIPIENT_EMAILS || "kashishgoyal100@gmail.com,himanshuagarwal9874@gmail.com";
+const RECIPIENT_EMAILS = process.env.RECIPIENT_EMAILS || "kashishgoyal100@gmail.com";
 
 const transporter = nodemailer.createTransport({
   service: 'gmail',

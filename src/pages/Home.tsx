@@ -1,5 +1,5 @@
 import { motion } from 'framer-motion';
-import { ArrowRight, Package, Eye, Target, ChevronLeft, ChevronRight, Plus, Minus, CheckCircle2, ShieldCheck, Building2, Globe } from 'lucide-react';
+import { ArrowRight, Package, Eye, Target, ChevronLeft, ChevronRight, Plus, Minus, CheckCircle2, ShieldCheck, Building2, Globe, Award, ZoomIn, X, ExternalLink } from 'lucide-react';
 import { Link } from 'react-router-dom';
 import { companyConfig } from '../config';
 import { useState } from 'react';
@@ -66,6 +66,7 @@ const faqs = [
 
 export function Home() {
   const [openFaq, setOpenFaq] = useState<number>(0);
+  const [showCertModal, setShowCertModal] = useState<boolean>(false);
 
   return (
     <div className="w-full bg-white">
@@ -489,8 +490,140 @@ export function Home() {
         </div>
       </section>
 
+      {/* ISO 9001:2015 CERTIFICATION SHOWCASE Section */}
+      <section className="py-20 md:py-28 bg-gradient-to-b from-white via-zinc-50 to-white border-t border-b border-zinc-200/80 relative overflow-hidden">
+        {/* Subtle decorative background glows */}
+        <div className="absolute top-1/2 left-10 w-80 h-80 bg-red-500/5 blur-[120px] rounded-full pointer-events-none" />
+        <div className="absolute bottom-10 right-10 w-96 h-96 bg-blue-500/5 blur-[140px] rounded-full pointer-events-none" />
 
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+          <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-16 items-center">
+            
+            {/* Left Column: Certification Details & Badges */}
+            <div className="lg:col-span-7 space-y-6">
+              <motion.div
+                initial={{ opacity: 0, y: 20 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true }}
+                transition={{ duration: 0.6 }}
+              >
+                <div className="inline-flex items-center space-x-2 bg-red-50 border border-red-200 text-[#D32F2F] text-xs font-extrabold px-3.5 py-1.5 rounded-full mb-4 uppercase tracking-wider">
+                  <Award className="w-4 h-4 mr-1" /> Quality Management System
+                </div>
+                <h2 className="text-3xl md:text-5xl font-extrabold text-zinc-900 tracking-tight leading-tight mb-4">
+                  ISO 9001:2015 <br className="hidden sm:inline" />
+                  <span className="text-[#D32F2F]">Certified Manufacturer</span>
+                </h2>
+                <div className="w-20 h-1 bg-[#D32F2F] mb-6 rounded-full" />
+                <p className="text-zinc-600 text-sm md:text-base leading-relaxed mb-6">
+                  <strong>Singhal Industrial Corporation</strong> operates under an internationally audited Quality Management System accredited by <strong>IAF (International Accreditation Forum)</strong> and <strong>EIAC (Emirates International Accreditation Centre)</strong>.
+                </p>
+              </motion.div>
 
+              {/* Scope Box */}
+              <div className="bg-white p-6 rounded-2xl border border-zinc-200/90 shadow-sm space-y-3">
+                <div className="flex items-center justify-between border-b border-zinc-100 pb-3">
+                  <span className="text-xs font-bold text-zinc-400 uppercase tracking-wider">Certification Scope</span>
+                  <span className="text-xs font-extrabold text-zinc-900 bg-zinc-100 px-2.5 py-1 rounded-md">Cert No. SIJ2Q0808V26</span>
+                </div>
+                <p className="text-xs md:text-sm text-zinc-700 font-medium leading-relaxed">
+                  "Manufacturing and Supply of Precision-Machined Components for Automotive and Engineering Applications in accordance with Customer Drawings, Specifications, and Applicable Requirements."
+                </p>
+              </div>
+
+              {/* Accreditation Highlights */}
+              <div className="grid grid-cols-1 sm:grid-cols-3 gap-4 pt-2">
+                <div className="flex items-start space-x-3 p-4 rounded-xl bg-white border border-zinc-200/80 shadow-sm">
+                  <ShieldCheck className="w-5 h-5 text-emerald-600 shrink-0 mt-0.5" />
+                  <div>
+                    <div className="text-xs font-bold text-zinc-900">Zero-Defect Standard</div>
+                    <div className="text-[11px] text-zinc-500">100% CMM & Spectro tested</div>
+                  </div>
+                </div>
+
+                <div className="flex items-start space-x-3 p-4 rounded-xl bg-white border border-zinc-200/80 shadow-sm">
+                  <CheckCircle2 className="w-5 h-5 text-blue-600 shrink-0 mt-0.5" />
+                  <div>
+                    <div className="text-xs font-bold text-zinc-900">IAF & EIAC Accredited</div>
+                    <div className="text-[11px] text-zinc-500">Globally recognized standard</div>
+                  </div>
+                </div>
+
+                <div className="flex items-start space-x-3 p-4 rounded-xl bg-white border border-zinc-200/80 shadow-sm">
+                  <Globe className="w-5 h-5 text-purple-600 shrink-0 mt-0.5" />
+                  <div>
+                    <div className="text-xs font-bold text-zinc-900">Export Certified</div>
+                    <div className="text-[11px] text-zinc-500">Compliant for 45+ nations</div>
+                  </div>
+                </div>
+              </div>
+
+              {/* Action Buttons */}
+              <div className="pt-4 flex flex-wrap gap-4">
+                <button
+                  type="button"
+                  onClick={() => setShowCertModal(true)}
+                  className="inline-flex items-center px-6 py-3.5 bg-[#D32F2F] text-white font-bold text-xs uppercase tracking-wider rounded-xl hover:bg-red-700 transition-all shadow-md cursor-pointer group"
+                >
+                  <ZoomIn className="w-4 h-4 mr-2" />
+                  View Original Certificate
+                </button>
+                <Link
+                  to="/quality"
+                  className="inline-flex items-center px-6 py-3.5 bg-zinc-900 text-white font-bold text-xs uppercase tracking-wider rounded-xl hover:bg-zinc-800 transition-all shadow-sm"
+                >
+                  Quality Testing & Lab <ArrowRight className="w-4 h-4 ml-2" />
+                </Link>
+              </div>
+            </div>
+
+            {/* Right Column: Interactive Certificate Card */}
+            <div className="lg:col-span-5 flex justify-center">
+              <motion.div
+                initial={{ opacity: 0, scale: 0.95 }}
+                whileInView={{ opacity: 1, scale: 1 }}
+                viewport={{ once: true }}
+                transition={{ duration: 0.6 }}
+                className="relative group w-full max-w-md cursor-pointer"
+                onClick={() => setShowCertModal(true)}
+              >
+                {/* Glow behind frame */}
+                <div className="absolute -inset-1.5 bg-gradient-to-r from-red-600 to-amber-600 rounded-3xl blur opacity-25 group-hover:opacity-60 transition duration-500" />
+                
+                {/* Certificate Frame */}
+                <div className="relative bg-white p-3 md:p-4 rounded-2xl shadow-2xl border border-zinc-200 overflow-hidden">
+                  <div className="relative overflow-hidden rounded-xl bg-zinc-100 flex items-center justify-center aspect-[1/1.414]">
+                    <img
+                      src="/images/isocertifcate.jpeg"
+                      alt="Singhal Industrial Corporation ISO 9001:2015 Certificate of Registration"
+                      className="w-full h-full object-contain transition-transform duration-500 group-hover:scale-105"
+                    />
+
+                    {/* Hover Overlay */}
+                    <div className="absolute inset-0 bg-black/40 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex flex-col items-center justify-center p-4 text-center">
+                      <div className="bg-white/95 text-zinc-900 px-5 py-2.5 rounded-full font-bold text-xs shadow-2xl flex items-center mb-2 transform -translate-y-2 group-hover:translate-y-0 transition-transform">
+                        <ZoomIn className="w-4 h-4 mr-2 text-[#D32F2F]" /> Click to Enlarge Certificate
+                      </div>
+                      <span className="text-white text-xs font-semibold drop-shadow">
+                        VRC / IAF / EIAC Registered
+                      </span>
+                    </div>
+                  </div>
+
+                  {/* Caption Bar under Certificate */}
+                  <div className="mt-3 px-2 py-1 flex items-center justify-between text-zinc-600">
+                    <span className="text-[11px] font-bold text-zinc-800 flex items-center">
+                      <ShieldCheck className="w-3.5 h-3.5 text-emerald-600 mr-1.5" /> ISO 9001:2015 Certified
+                    </span>
+                    <span className="text-[10px] text-zinc-400 font-semibold">Valid 2026 - 2029</span>
+                  </div>
+                </div>
+              </motion.div>
+            </div>
+
+          </div>
+        </div>
+      </section>
 
       {/* Testimonials */}
       <section className="py-20 bg-zinc-50">
@@ -559,6 +692,53 @@ export function Home() {
           </div>
         </div>
       </section>
+
+      {/* ISO Certificate Lightbox Modal */}
+      {showCertModal && (
+        <div 
+          onClick={() => setShowCertModal(false)}
+          className="fixed inset-0 z-50 bg-black/90 backdrop-blur-sm flex items-center justify-center p-4 sm:p-6"
+        >
+          <div 
+            onClick={(e) => e.stopPropagation()}
+            className="relative max-w-3xl w-full bg-zinc-950 rounded-2xl overflow-hidden border border-zinc-800 shadow-2xl flex flex-col max-h-[92vh]"
+          >
+            {/* Modal Header */}
+            <div className="flex items-center justify-between px-6 py-4 border-b border-zinc-800 bg-zinc-900 text-white">
+              <div className="flex items-center space-x-2">
+                <ShieldCheck className="w-5 h-5 text-red-500" />
+                <span className="font-bold text-sm">Singhal Industrial Corporation — ISO 9001:2015 Certificate</span>
+              </div>
+              <div className="flex items-center space-x-3">
+                <a 
+                  href="/images/isocertifcate.jpeg" 
+                  target="_blank" 
+                  rel="noopener noreferrer"
+                  className="text-xs text-zinc-400 hover:text-white flex items-center bg-zinc-800 px-3 py-1.5 rounded-lg transition-colors"
+                >
+                  <ExternalLink className="w-3.5 h-3.5 mr-1.5" /> Open Full Image
+                </a>
+                <button 
+                  onClick={() => setShowCertModal(false)}
+                  className="text-zinc-400 hover:text-white bg-zinc-800 p-1.5 rounded-lg transition-colors cursor-pointer"
+                >
+                  <X className="w-5 h-5" />
+                </button>
+              </div>
+            </div>
+
+            {/* Modal Body */}
+            <div className="p-4 bg-zinc-900/60 overflow-y-auto flex items-center justify-center">
+              <img 
+                src="/images/isocertifcate.jpeg" 
+                alt="ISO 9001:2015 Certificate Enlarged" 
+                className="max-h-[75vh] w-auto object-contain rounded-lg shadow-2xl border border-zinc-800"
+              />
+            </div>
+          </div>
+        </div>
+      )}
+
     </div>
   );
 }
